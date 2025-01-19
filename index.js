@@ -13,7 +13,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Our Middlewares
-app.use(cors());
+// app.use(cors());
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(express.json());
@@ -24,6 +24,13 @@ connectionWithDB();
 // Our Routes
 const bookRoute = require("./routes/bookRoute");
 app.use("/api/v1", bookRoute);
+
+// Routes for my checking routes
+app.get("/", (req, res) => {
+  res.send(
+    "<h1>P3 API</h1><ol>endpoints: <br/><li> books - /api/v1</li> <li> </li> <li> </li> <ol>"
+  );
+});
 
 // default, catch-all route
 app.get("/*", (req, res) => {
