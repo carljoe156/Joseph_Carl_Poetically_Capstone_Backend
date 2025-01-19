@@ -39,10 +39,10 @@ const BookSchema = mongoose.Schema({
   },
 });
 
-// Our Book indexes
-BookSchema.index({ title: 1 }, { unique: true }); //  For unique titles
-BookSchema.index({ author: 1 }); // Index for faster searches by author/s
-BookSchema.index({ genre: 1 }); // Index for genre-based filtering
-BookSchema.index({ year: 1 }); // Index for year-based sorting or filtering
+// // Our Book indexes
+// BookSchema.index({ title: 1 }, { unique: true }); //  For unique titles
+// BookSchema.index({ author: 1 }); // Index for faster searches by author/s
+// BookSchema.index({ genre: 1 }); // Index for genre-based filtering
+// BookSchema.index({ year: 1 }); // Index for year-based sorting or filtering
 
 module.exports = mongoose.model("Book", BookSchema);
