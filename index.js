@@ -21,6 +21,20 @@ app.use(express.json());
 // Our Connection to MongoDB
 connectionWithDB();
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+// Our Routes
+const bookRoute = require("./routes/bookRoute");
+app.use("/api/v1", bookRoute);
+
+// default, catch-all route
+app.get("/*", (req, res) => {
+  res.redirect("/");
+});
+
+//Global error handling
+app.use((err, _req, res, next) => {
+  res.status(500).send("There was an issue on the server");
+});
+
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
 });
