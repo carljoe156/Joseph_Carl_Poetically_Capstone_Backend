@@ -4,6 +4,10 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const connectionWithDB = require("./connection/DB");
+const bookRoute = require("./routes/bookRoute");
+const poemRoute = require("./routes/poemRoute");
+// const seedRoute = require("./routes/seedRoute");
+
 const cors = require("cors");
 
 dotenv.config();
@@ -31,13 +35,16 @@ app.use(
 connectionWithDB();
 
 // Our Routes
-const bookRoute = require("./routes/bookRoute");
+// app.use("/api/v1", bookRoute);
+// app.use("/api/v1", poemRoute);
+// app.use("/api/v1/seed", seedRoute);
 app.use("/api/v1", bookRoute);
+app.use("/api/v1", poemRoute);
 
 // Routes for my checking routes
 app.get("/", (req, res) => {
   res.send(
-    "<h1>P3 API</h1><ol>endpoints: <br/><li> books - /api/v1</li> <li> </li> <li> </li> <ol>"
+    "<h1>P3 API</h1><ol>endpoints: <br/><li> books - /api/v1</li> <li>><li> poems - /api/v1>"
   );
 });
 
