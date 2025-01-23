@@ -1,7 +1,5 @@
 # Poetically Book Website Application- Backend
 
-## Live Deployed Link - [Poetically ](https://)
-
 ### FRONTEND GitHub Repository - (https://github.com/carljoe156/Joseph_Carl_Poetically_Capstone_Frontend.git)
 
 ## Overview
